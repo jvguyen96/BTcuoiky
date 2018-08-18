@@ -1,0 +1,75 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+ul{
+    list-style-type: none;
+}
+body{
+    width: 800px;
+    margin: auto;
+}
+#top{
+    width: 800px;
+    height: 100px;
+    text-align: center;
+    background:royalblue;
+    line-height: 100px;
+}
+#menu{
+    width: 800px;
+    margin-top: 8px ;
+}
+#menu ul li{
+    float: left;
+    background:royalblue ;
+    border-right:1px solid white;
+    width: 199px;
+    text-align: center;
+    line-height: 30px;
+}
+#menu a{
+    font-weight: bold;
+    color: white;
+}
+#wrapper table{
+    width: 800px;
+    text-align: center;
+    margin-top: 20px;
+    border-collapse: collapse ;
+    color: gray;
+}
+#wrapper table tr{
+    border: 1px solid royalblue ;
+    line-height: 25px;
+}
+#wrapper table td{
+    border: 1px solid royalblue;
+}
+#wrapper2 table{
+    margin: 10px 20px;
+}
+#wrapper2 table tr{
+    line-height: 30px;
+}
+#wrapper2 table input{
+    padding: 2px;
+}
+#wrapper2 table select{
+    padding: 2px;
+}
+#bottom{
+    width: 800px;
+    height: 40px;
+    line-height: 40px;
+    background: royalblue;
+    margin-top: 10px;
+   text-align: center;
+}
+

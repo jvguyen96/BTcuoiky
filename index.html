@@ -1,0 +1,61 @@
+<?php
+session_start();
+require ('templates/header.php');
+?>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script>
+		$(document).ready(function () {
+			$('.new:last').css('border-bottom','none');
+		});
+	</script>
+
+		<div id="left">
+
+			<?php
+			// mở kết nối
+			require ("library/config.php");
+
+			// thực hiện truy vấn
+			$result3=mysql_query("select cate_id,cate_title from category");
+			while($data3=mysql_fetch_assoc($result3))
+			{
+
+				echo "<div class='new'>";
+				echo "<div class='category'>$data3[cate_title]</div>";
+				echo "<div class='article'>";
+
+				// thực hiện truy vấn
+				$result = mysql_query("select new_id,title,image,introduce from news where cate_id=$data3[cate_id] order by new_id DESC");
+				$data = mysql_fetch_assoc($result);
+				echo "<h3><a href='detail.php?id=$data[new_id]'>$data[title]</a></h3>";
+				echo "<img src='library/images/$data[image]' width='140px' height='95px'>";
+				echo "$data[introduce]";
+
+				echo "</div>";
+				echo "<div class='list-article'>";
+				echo "<ul>";
+
+				// thực hiện truy vấn
+				$result2 = mysql_query("select new_id,title from news where cate_id=$data3[cate_id] order by new_id desc limit 1,3");
+				while ($data2 = mysql_fetch_assoc($result2)) {
+					echo "<li><a href='detail.php?id=$data2[new_id]'>$data2[title]</a></li>";
+				}
+
+				echo "</ul>";
+				echo "</div>";
+				echo "<div style='clear:left'></div>";
+				echo "</div>";
+
+			}
+
+			// đóng truy vấn
+			mysql_close($conn);
+
+			?>
+
+		</div>
+
+<?php
+	require ('templates/content-right.php');
+	require ('templates/footer.php');
+?>
